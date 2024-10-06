@@ -50,10 +50,12 @@ const NavBar = ({ toggleAddPost, user, setUser }) => {
   // }
   return (
     <div className="sticky left-0 top-0 min-w-[300px] flex-grow-0 pt-[40px] pr-[12px] pb-[16px] pl-[12px] bg-white  flex-col gap-[4px] h-screen border-r border-gray-300 hidden sm:flex">
-      <img src={logo} className="mx-[10px] w-[102.4px] h-[29px] mb-4" />
+      <Link to="/">
+        <img src={logo} className="mx-[10px] w-[102.4px] h-[29px] mb-4" />
+      </Link>
       <div className="mb-[4px] py-[4px] text-base font-normal font-roboto flex flex-col gap-2">
         <Link
-          to="/home"
+          to="/"
           className="flex flex-row justify-start items-center p-[12px] gap-4 cursor-pointer"
         >
           <IoMdHome className="h-8 w-8" />

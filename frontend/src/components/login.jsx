@@ -23,7 +23,7 @@ const Login = () => {
       );
       localStorage.setItem("token", response.data.authToken);
       setSuccess("Logged in successfully");
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       setError(error.response ? error.response.data.message : "Login failed");
     }
