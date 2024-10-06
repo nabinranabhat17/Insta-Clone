@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(
   cors({
-    origin: "https://insta-clone-frontend-f3ib.onrender.com/", // Specify the frontend URL
+    origin: "https://insta-clone-frontend-f3ib.onrender.com", // Specify the frontend URL
     credentials: true, // Enable sending cookies with CORS
   })
 );
