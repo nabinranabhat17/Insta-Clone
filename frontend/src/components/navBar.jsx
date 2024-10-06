@@ -22,12 +22,15 @@ const NavBar = ({ toggleAddPost, user, setUser }) => {
       try {
         //get token from local storage
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/user/profile", {
-          withCredentials: true,
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "https://insta-clone-r30s.onrender.com/user/profile",
+          {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         if (response.data.success) {
           setUser(response.data.user);
           setLoading(false);

@@ -29,18 +29,21 @@ const HomePage = () => {
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/user/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://insta-clone-r30s.onrender.com/user/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
         if (response.data.success) {
           setUser(response.data.user);
 
           try {
             const userResponse = await axios.get(
-              `http://localhost:5000/user/${response.data.user._id}`
+              `https://insta-clone-r30s.onrender.com/user/${response.data.user._id}`
             );
             setFullname(userResponse.data.fullname);
             setUsername(userResponse.data.username);
@@ -68,7 +71,9 @@ const HomePage = () => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/post");
+        const response = await axios.get(
+          "https://insta-clone-r30s.onrender.com/post"
+        );
         setPosts(response.data);
         setLoading(false);
       } catch (error) {

@@ -25,7 +25,7 @@ const FullPost = ({ viewCommentPostId }) => {
       const token = localStorage.getItem("token");
 
       const res = await axios.put(
-        `http://localhost:5000/post/comments/${viewCommentPostId}`,
+        `https://insta-clone-r30s.onrender.com/post/comments/${viewCommentPostId}`,
         data,
         {
           headers: {
@@ -44,7 +44,7 @@ const FullPost = ({ viewCommentPostId }) => {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:5000/post/comments/${viewCommentPostId}`
+          `https://insta-clone-r30s.onrender.com/post/comments/${viewCommentPostId}`
         );
         setComment(res.data.comments);
         setSelectedPostImage(res.data.image);
@@ -65,12 +65,15 @@ const FullPost = ({ viewCommentPostId }) => {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/user/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://insta-clone-r30s.onrender.com/user/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
         setUser(res.data.user._id);
         setLoading(false);
       } catch (error) {
@@ -87,7 +90,7 @@ const FullPost = ({ viewCommentPostId }) => {
 
       const token = localStorage.getItem("token");
       const res = await axios.put(
-        `http://localhost:5000/post/${viewCommentPostId}`,
+        `https://insta-clone-r30s.onrender.com/post/${viewCommentPostId}`,
         { like: true },
         {
           headers: {

@@ -32,17 +32,20 @@ const ProfilePage = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/user/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://insta-clone-r30s.onrender.com/user/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
         if (response.data.success) {
           setUser(response.data.user);
           try {
             const userResponse = await axios.get(
-              `http://localhost:5000/post/${id}`
+              `https://insta-clone-r30s.onrender.com/post/${id}`
             );
             setPosts(userResponse.data);
           } catch (error) {

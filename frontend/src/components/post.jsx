@@ -31,7 +31,7 @@ const Post = ({
       const token = localStorage.getItem("token");
 
       const res = await axios.put(
-        `http://localhost:5000/post/comments/${post._id}`,
+        `https://insta-clone-r30s.onrender.com/post/comments/${post._id}`,
         data,
         {
           headers: {
@@ -53,12 +53,15 @@ const Post = ({
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/user/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://insta-clone-r30s.onrender.com/user/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
         setUser(res.data.user._id);
         setLoading(false);
       } catch (error) {
@@ -73,7 +76,7 @@ const Post = ({
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put(
-        `http://localhost:5000/post/${post._id}`,
+        `https://insta-clone-r30s.onrender.com/post/${post._id}`,
         { like: true },
         {
           headers: {
@@ -113,11 +116,11 @@ const Post = ({
               Navigate(`/profile/${post.user._id}`);
             }}
           >
-            {/* <img
-              src={`http://localhost:5000/uploads/${post.user.profilePic}`}
+            <img
+              src={post.user.profilePic}
               alt=""
               className="h-8 w-8 rounded-full"
-            /> */}
+            />
             <p className="ml-1 font-semibold text-[#262626]">
               {post.user.username}
             </p>
