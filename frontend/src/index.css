@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scroll {
+    overflow:hidden;
+}
+
+.custom-scrollbar {
+    height: 380px; /* Set your fixed height */
+    overflow-y: scroll;
+    padding-right: 17px; /* Prevent content from hiding behind scrollbar */
+  }
+  
+  /* Hide scrollbar for WebKit browsers */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  /* Hide scrollbar for Firefox */
+  .custom-scrollbar {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
